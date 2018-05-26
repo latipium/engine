@@ -9,7 +9,7 @@ namespace Com.Latipium.Engine {
         public static void Start(ILatipiumServer server) {
             Context ctx = null;
             try {
-                ctx = new Context();
+                ctx = server.OpenDatabaseContext();
             } catch (SocketException ex) {
                 Log.Error(Log.Startup, "Unable to connect to database: {0}", ex.Message);
                 Environment.Exit(1);
